@@ -1,0 +1,7 @@
+export const THEME = {
+    PADDING_HORIZONTAL: 30,
+    BACKGROUND_COLOR_MAIN: '#fff',
+    BACKGROUND_COLOR_GREY: '#353232',
+    FIRST_TEXT_COLOR: '#000',
+    SECOND_TEXT_COLOR: '#fff'
+}

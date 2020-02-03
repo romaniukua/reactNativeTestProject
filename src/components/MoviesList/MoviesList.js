@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { moviesFetchData } from '../../action/index';
 
 import Movie from '../Movie/Movie';
+import { THEME } from '../../theme';
 
 
 class MoviesList extends Component {
@@ -19,10 +20,10 @@ class MoviesList extends Component {
             <View style = {styles.container}>
                 <View style = {styles.headerWrapper}>
                     <Text style = {styles.text}>MOVIES</Text>
-                    <View style = {styles.contentWrapper}>
-                        {/* {moviesList.map( movie => (<Movie movie = {movie} key={movie.id}/>))} */}
-                    </View>
                 </View>
+                <ScrollView contentContainerStyle = {styles.contentWrapper}>
+                    {moviesList.map( movie => (<Movie movie = {movie} key={movie.id}/>))}
+                </ScrollView>
             </View>
         )
     }
@@ -31,20 +32,21 @@ class MoviesList extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: THEME.BACKGROUND_COLOR_MAIN,
+      paddingHorizontal: THEME.PADDING_HORIZONTAL,
     },
     headerWrapper: {
-        paddingHorizontal: 30,
         paddingVertical: 20
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+        color: THEME.FIRST_TEXT_COLOR,
     },
     contentWrapper: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     }
   });
 

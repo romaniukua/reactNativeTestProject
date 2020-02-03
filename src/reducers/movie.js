@@ -1,14 +1,26 @@
 const initialState = {
-    moviesList: []
+    moviesList: [],
+    detailedMovieInfoList: {'12': '12'}
 };
 
 export const movieReducer = (state = initialState, {type, payload}) => {
     switch(type){
         case 'MOVIES_FETCH_DATA_SUCCESS': {
-            store.moviesList = payload;
+            state.moviesList = payload;
             return {
-                ...store
+                ...state
             };
+        }
+        case 'MOVIE_FETCH_DATA_SUCCESS': {
+            
+            state.detailedMovieInfoList = {
+                [payload.id]: payload,
+                ...state.detailedMovieInfoList
+            }
+
+            return {
+                ...state
+            }
         }
     }
     return state;
